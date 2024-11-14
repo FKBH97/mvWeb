@@ -1,0 +1,196 @@
+/* Root Variables */
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --background-overlay: rgba(0, 0, 0, 0.8);
+    --text-color-light: #ffffff;
+    --text-color-dark: #2c3e50;
+    --transition: all 0.3s ease;
+    --nav-height: 80px;
+    --shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color-dark);
+    background-color: #fff;
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: var(--nav-height);
+    background: rgba(255, 255, 255, 0.95); /* Background color with slight opacity */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    z-index: 1000;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* Align logo to the left and nav links in the remaining space */
+    align-items: center;
+    height: 100%;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px; /* Logo size */
+    color: var(--primary-color); /* Primary color for the logo */
+    font-weight: 700; /* Bold font for logo */
+    text-decoration: none; /* Remove underline from logo */
+    margin-right: auto; /* Pushes nav links to the center */
+}
+
+ul.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: center; /* Center the navigation links */
+    flex-grow: 1; /* Allows nav links to fill available space */
+}
+
+ul.nav-links li {
+    margin: 0 15px; /* Spacing between each nav link */
+}
+
+ul.nav-links li a {
+    text-decoration: none; /* Remove underline from links */
+    color: var(--primary-color); /* Color for nav links */
+    font-weight: 500;
+    padding: 10px 15px;
+    transition: var(--transition); /* Smooth transition for hover effects */
+}
+
+ul.nav-links li a:hover,
+ul.nav-links li a.active {
+    color: var(--accent-color); /* Change link color on hover and active */
+    border-bottom: 2px solid var(--accent-color); /* Underline effect on hover */
+}
+
+
+a:focus, button:focus {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 3px;
+}
+
+
+/* Projects Grid */
+main {
+    padding-top: var(--nav-height);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    padding: 40px 0;
+}
+
+.project-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform var(--transition);
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-overlay);
+    color: var(--text-color-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+.project-item:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-item:hover img {
+    transform: scale(1.1);
+}
+
+.project-overlay h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.project-overlay p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.project-link {
+    background-color: #fff;
+    color: #000;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color var(--transition);
+}
+
+.project-link:hover {
+    background-color: #f0f0f0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.social-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    padding: 0;
+}
+
+.social-links li {
+    display: inline-block;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #e74c3c; /* Change color on hover */
+}
