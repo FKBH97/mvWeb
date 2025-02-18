@@ -1,4 +1,5 @@
-function block() {
+class block{
+    constructor(){
     this.x;
     this.y;
     this.width = 100;
@@ -72,4 +73,5 @@ function block() {
             }
         }
     }
+}
 }
